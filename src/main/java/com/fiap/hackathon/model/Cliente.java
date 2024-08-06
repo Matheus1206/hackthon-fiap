@@ -54,4 +54,8 @@ public class Cliente {
         this.cep = cep;
         this.pais = pais;
     }
+
+    public void setCartoes(Cartao cartao) {
+        this.cartoes.add(cartao);
+    }
 }

@@ -23,17 +23,22 @@ public class CartaoService {
     public ResponseEntity<?> validarCriacao(Cartao cartao) {
         List<Optional<Cartao>> optionalCartoes = cartaoRepository.findByCpf(cartao.getCpf());
 
-        Optional<Cliente> cliente = clienteRepository.findByCpf(cartao.getCpf());
+        Optional<Cliente> optionalCliente = clienteRepository.findByCpf(cartao.getCpf());
 
-        if (cliente.isEmpty()) {
+        if (optionalCliente.isEmpty()) {
             return ResponseEntity.status(404).body("Cliente não encontrado");
         }
-        System.out.println(optionalCartoes.size());
+
         if (optionalCartoes.size() >= 2) {
             return ResponseEntity.status(403).body("Limite de cartões atingido");
         }
 
+        Cliente cliente = optionalCliente.get();
+
+        cliente.setCartoes(cartao);
+        
         cartaoRepository.save(cartao);
+        clienteRepository.save(cliente);
 
         return ResponseEntity.status(200).build();
     }
