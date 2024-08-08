@@ -22,12 +22,6 @@ public class ClienteController {
 
     @PostMapping
     public ResponseEntity<?> criarCliente(@Valid @RequestBody ClienteRequest clienteRequest) {
-        Cliente cliente = clienteService.criar(clienteRequest);
-
-        HashMap<String, Object> object = new HashMap<>();
-
-        object.put("id_cliente", cliente.getId());
-
-        return ResponseEntity.status(200).body(object);
+        return clienteService.criar(clienteRequest);
     }
 }

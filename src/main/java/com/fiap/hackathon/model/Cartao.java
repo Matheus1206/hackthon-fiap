@@ -17,13 +17,16 @@ public class Cartao {
 
     private String cpf;
 
-    private Integer limite;
+    private Double limite;
 
     @Id
-    private Long numero;
+    private String numero;
 
     private String dataValidade;
 
     private String cvv;
 
+    public void debitar(Double limite) {
+        this.limite -= limite;
+    }
 }
