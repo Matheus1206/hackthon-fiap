@@ -1,6 +1,6 @@
 # hackthon-fiap
 
-Projeto desenvolvido com o objetivo de criar um sistema de .
+Projeto desenvolvido com o objetivo de criar um sistema de processamento de pagamentos de operadoras de cartão de crédito.
 
 ## Quais foram as tecnologias e ferramentas utilizadas:
   - Java 17
@@ -12,7 +12,7 @@ Projeto desenvolvido com o objetivo de criar um sistema de .
   - JUnit
 
 ## Desafios encontrados e soluções implementadas
-Nesse tech challenge foram encontrados vários desafios e muito diferentes dos outros. A modelagem de dados é essencial para garantir que informações sobre produtos, usuários e cartões sejam armazenadas corretamente e de maneira eficiente. A gestão de produtos exige funcionalidades robustas para adicionar, atualizar e remover itens, além de controlar o estoque. A autenticação e autorização dos usuários são cruciais para garantir a segurança, exigindo a implementação de mecanismos de login e controle de acesso. A integração com o Spring facilita o desenvolvimento, oferecendo ferramentas poderosas para a criação de APIs RESTful e o gerenciamento de dependências. A conexão com o banco de dados, geralmente realizada com JPA e Hibernate, assegura que os dados sejam persistidos corretamente. Além disso, a implementação de pagamentos requer a integração com serviços de pagamento externos, garantindo transações seguras e confiáveis.
+Implementar um sistema de pagamentos para operadoras de cartão de crédito usando Spring apresenta diversos desafios. Primeiro, a segurança dos dados financeiros é crítica, exigindo criptografia robusta e conformidade com normas como PCI DSS. A integração com múltiplos gateways de pagamento traz complexidade, exigindo mecanismos para lidar com diferentes APIs e garantir transações seguras e eficientes. Além disso, a aplicação deve ser altamente disponível e escalável para suportar picos de transações. Gerenciar processos como autorização, captura e reembolsos requer uma lógica de negócios complexa, com tratamento de erros e conciliações financeiras em tempo real.
 
 ## Como utilizar o projeto:
 1 - Efetue o clone do projeto para uma pasta de sua preferência
