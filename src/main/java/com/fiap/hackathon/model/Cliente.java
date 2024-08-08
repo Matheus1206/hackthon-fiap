@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,7 +42,7 @@ public class Cliente {
     private String pais;
 
     @OneToMany
-    private List<Cartao> cartoes;
+    private List<Cartao> cartoes = new ArrayList<>();
 
     public Cliente(String cpf, String nome, String email, String telefone, String rua, String cidade, String estado, String cep, String pais) {
         this.cpf = cpf;
