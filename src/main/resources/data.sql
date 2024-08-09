@@ -1,0 +1,1 @@
+INSER INTO usuarios VALUES(1, 'teste', '$2a$10$C6YDThX15fvGefbOFL2pR.90rgWABpUGwFFBgFFkTOmpIoKXGf69K');

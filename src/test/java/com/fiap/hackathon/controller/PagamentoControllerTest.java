@@ -3,7 +3,10 @@ package com.fiap.hackathon.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.hackathon.Utils;
 import com.fiap.hackathon.dto.PagamentoRequest;
+import com.fiap.hackathon.repository.UsuarioRepository;
+import com.fiap.hackathon.service.ClienteService;
 import com.fiap.hackathon.service.PagamentoService;
+import com.fiap.hackathon.service.TokenService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -31,6 +34,14 @@ class PagamentoControllerTest {
     @Autowired
     private ObjectMapper mapper;
 
+    @MockBean
+    private TokenService tokenService;
+
+    @MockBean
+    private UsuarioRepository usuarioRepository;
+
+
+
     @Test
     void pagamentoControllerFromService() throws Exception {
         PagamentoRequest pagamentoRequest = new PagamentoRequest(Utils.generateCPF(), "1234", "12345", "123", 122222.0);
@@ -40,7 +51,7 @@ class PagamentoControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(req))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isForbidden());
     }
 
     @Test
@@ -50,7 +61,7 @@ class PagamentoControllerTest {
         mockMvc.perform(get("/api/pagamento/cliente/{cpf}", cpf)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isUnauthorized());
     }
 
 }

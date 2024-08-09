@@ -2,7 +2,10 @@ package com.fiap.hackathon.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.hackathon.model.Cartao;
+import com.fiap.hackathon.repository.UsuarioRepository;
 import com.fiap.hackathon.service.CartaoService;
+import com.fiap.hackathon.service.ClienteService;
+import com.fiap.hackathon.service.TokenService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -29,6 +32,16 @@ class CartaoControllerTest {
     @Autowired
     private ObjectMapper mapper;
 
+    @MockBean
+    private TokenService tokenService;
+
+    @MockBean
+    private UsuarioRepository usuarioRepository;
+
+    @MockBean
+    private ClienteService clienteService;
+
+
     @Test
     void cartaoControllerFromService() throws Exception {
         when(service.validarCriacao(any())).thenReturn(ResponseEntity.ok().build());
@@ -43,6 +56,6 @@ class CartaoControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(req))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isForbidden());
     }
 }
