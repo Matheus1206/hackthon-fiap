@@ -19,6 +19,6 @@ Implementar um sistema de pagamentos para operadoras de cartão de crédito usan
 
 2 - Abra o terminal de sua preferência e navegue até o projeto
 
-3 - Execute o comando "docker compose up"
+3 - Execute o comando "dokcer compose build" e depois "docker compose up"
 
 4 - Abra um navegador da sua preferência e acesse a url: http://localhost:8080/swagger-ui/index.html para conseguir acessar o swagger onde estão especificadas todas as apis e chamadas.
