@@ -14,6 +14,9 @@ public class CarregaBanco {
             return args -> {
                 Usuario usuario = new Usuario(1l, "teste", "$2a$10$C6YDThX15fvGefbOFL2pR.90rgWABpUGwFFBgFFkTOmpIoKXGf69K");
                 usuarioRepository.save(usuario);
+           
+           System.out.println("Usuário carregado: " + usuario.getNome());
+           
             };
         }
     }
